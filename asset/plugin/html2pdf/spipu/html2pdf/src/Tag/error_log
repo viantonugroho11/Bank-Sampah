@@ -1,0 +1,2 @@
+[10-Jul-2021 23:14:45 Asia/Jakarta] PHP Fatal error:  Class 'Spipu\Html2Pdf\Tag\AbstractTag' not found in /home/rese5598/public_html/ngopibloko.xyz/html2pdf/spipu/html2pdf/src/Tag/AbstractSvgTag.php on line 22
+[10-Jul-2021 23:14:46 Asia/Jakarta] PHP Fatal error:  Interface 'Spipu\Html2Pdf\Tag\TagInterface' not found in /home/rese5598/public_html/ngopibloko.xyz/html2pdf/spipu/html2pdf/src/Tag/AbstractTag.php on line 25

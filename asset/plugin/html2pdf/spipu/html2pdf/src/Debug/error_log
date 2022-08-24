@@ -1,0 +1,1 @@
+[10-Jul-2021 23:14:12 Asia/Jakarta] PHP Fatal error:  Interface 'Spipu\Html2Pdf\Debug\DebugInterface' not found in /home/rese5598/public_html/ngopibloko.xyz/html2pdf/spipu/html2pdf/src/Debug/Debug.php on line 19

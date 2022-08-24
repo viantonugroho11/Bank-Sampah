@@ -1,0 +1,2 @@
+[10-Jul-2021 23:16:50 Asia/Jakarta] PHP Notice:  Undefined variable: html2pdf in /home/rese5598/public_html/ngopibloko.xyz/html2pdf/spipu/html2pdf/examples/res/about.php on line 20
+[10-Jul-2021 23:16:50 Asia/Jakarta] PHP Fatal error:  Call to a member function getVersion() on null in /home/rese5598/public_html/ngopibloko.xyz/html2pdf/spipu/html2pdf/examples/res/about.php on line 20
