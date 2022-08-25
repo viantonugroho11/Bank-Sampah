@@ -4,7 +4,7 @@ require_once '../system/config/koneksi.php';
 
 if (isset($_POST['simpan'])) {
     $jenis_sampah = $_POST['jenis_sampah'];
-    $id_sampah = $_POST['id_sampah'];
+    $id = $_POST['id'];
     $satuan = $_POST['satuan'];
     $harga = $_POST['harga'];
     $deskripsi = $_POST['deskripsi'];
@@ -26,7 +26,7 @@ if (isset($_POST['simpan'])) {
                 $nama_file .
                 "',deskripsi='" .
                 $deskripsi .
-                "' WHERE id_sampah='$id_sampah'"
+                "' WHERE id='$id'"
         );
     } else {
         $query = mysqli_query(
@@ -39,13 +39,13 @@ if (isset($_POST['simpan'])) {
                 $harga .
                 "',deskripsi='" .
                 $deskripsi .
-                "' WHERE id_sampah='$id_sampah'"
+                "' WHERE id='$id'"
         );
     }
     if ($query) {
         echo "
         <script>
-          alert('Berhasil Mengubah Data!');
+          alert('Berhasil Menambah Data!');
         </script>
         ";
 
@@ -53,7 +53,7 @@ if (isset($_POST['simpan'])) {
     } else {
         echo "
         <script>
-          alert('Gagal Mengubah Data!');
+          alert('Gagal Menambah Data!');
         </script>
         ";
 
@@ -114,13 +114,13 @@ if (isset($_POST['simpan'])) {
 </head>
 
 <body>
-    <h2 style="font-size: 30px; color: #262626;">Edit Data Sampah</h2>
+    <h2 style="font-size: 30px; color: #262626;">Edit Data Penyetoran</h2>
     <?php if (isset($_GET['id'])) {
-        $id_sampah = $_GET['id']; ?>
+        $id = $_GET['id']; ?>
     <?php
     $cek = mysqli_query(
         $conn,
-        "SELECT * FROM sampah WHERE id_sampah='" . $_GET['id'] . "'"
+        "SELECT * FROM sampah WHERE id='" . $_GET['id'] . "'"
     );
     $row = mysqli_fetch_array($cek);
     ?>
@@ -132,7 +132,7 @@ if (isset($_POST['simpan'])) {
             <input type="text" name="jenis_sampah" value="<?php echo $row[
                 'jenis_sampah'
             ]; ?> " />
-            <input type="hidden" name="id_sampah" value="<?php echo $row['id_sampah']; ?> " />
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?> " />
         </div>
         <div class="form-group">
             <label class="">Satuan</label>
@@ -161,7 +161,7 @@ if (isset($_POST['simpan'])) {
 
 
 
-        <input name="id_sampah" type="hidden" value="<?php echo $_GET['id']; ?>" />
+        <input name="id" type="hidden" value="<?php echo $_GET['id']; ?>" />
         <input class="button" type="submit" name="simpan" value="Simpan Data" />
 
 

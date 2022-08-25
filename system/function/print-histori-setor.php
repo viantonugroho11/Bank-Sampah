@@ -54,6 +54,7 @@ session_start();
                 <th>BERAT</th>
                 <th>HARGA</th>
                 <th>TOTAL</th>
+                <th>NIA</th>
             </tr>
         </thead>
 
@@ -63,7 +64,7 @@ session_start();
         require_once '../config/koneksi.php';
 
         $query =
-            "SELECT sampah.id_sampah, sampah.jenis_sampah, setor.berat, setor.tanggal_setor, setor.total, setor.harga FROM setor JOIN sampah WHERE nin='" .
+            "SELECT * FROM setor WHERE nin='" .
             @$_SESSION['nin'] .
             "' ORDER BY id_setor DESC";
         $sql = mysqli_query($conn, $query);
@@ -82,6 +83,7 @@ session_start();
                     number_format($data['harga'], 2, ',', '.'); ?></td>
                 <td><?php echo 'Rp. ' .
                     number_format($data['total'], 2, ',', '.'); ?></td>
+                <td><?php echo $data['nia']; ?></td>
             </tr>
         </tbody>
 

@@ -63,13 +63,13 @@
                 <td>
 
                     <a href="admin.php?page=edit-sampah&id=<?php echo $row[
-                        'id_sampah'
+                        'id'
                     ]; ?>">
                         <button><i class="fa fa-pencil"></i>edit</button>
                     </a>
 
                     <a onclick="return confirm('Anda yakin ingin menghapus data ini?')" href="../system/function/delete-sampah.php?id=<?php echo $row[
-                        'id_sampah'
+                        'id'
                     ]; ?>">
                         <button><i class="fa fa-trash-o"></i>hapus</button>
                     </a>
