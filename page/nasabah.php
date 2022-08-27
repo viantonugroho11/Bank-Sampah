@@ -16,7 +16,7 @@ if (empty($_SESSION['user_n']) && empty($_SESSION['pass_n'])) {
     <link rel="stylesheet" href="../asset/internal/css/style_2.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway:700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../asset/internal/img/img-local/favicon.ico">
+    <link rel="shortcut icon" href="../asset/internal/img/img-local/favicon2.png">
     <style>
     button {
         height: 27px;
@@ -60,14 +60,10 @@ $row = mysqli_fetch_array($cek);
                 <a href="nasabah.php?page=histori-tarik"><span class="fa fa-handshake-o"
                         aria-hidden="true"></span>Histori Tarik</a>
             </li>
+>
 
             <li>
-                <a href="nasabah.php?page=data-report"><span class="fa fa-table" aria-hidden="true"></span>Report
-                    Data</a>
-            </li>
-
-            <li>
-                <a href="logout.php"><span class="fa fa-sign-out" aria-hidden="true"></span>Logout</a>
+                <a href="logout.php"><span class="fa fa-sign-out" aria-hidden="true"></span>Keluar</a>
             </li>
 
         </ul>

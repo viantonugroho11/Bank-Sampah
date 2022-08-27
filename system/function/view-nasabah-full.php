@@ -28,7 +28,6 @@
                 <th>Telepon</th>
                 <th>E-mail</th>
                 <th>Saldo</th>
-                <th>Sampah</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -41,7 +40,6 @@
                 <th>Telepon</th>
                 <th>E-mail</th>
                 <th>Saldo</th>
-                <th>Sampah</th>
                 <th>Aksi</th>
             </tr>
         </tfoot>
@@ -83,24 +81,6 @@
               ?>
                     <?php echo 'Rp. ' .
                     number_format($row['saldo'], 2, ',', '.'); ?></td>
-                <td>
-                    <?php
-              $querysampah = mysqli_query(
-                  $conn,
-                  "SELECT SUM(berat) AS totalberat FROM setor WHERE nin='" .
-                      $row['nin'] .
-                      "'"
-              );
-              $rowsampah = mysqli_fetch_array($querysampah);
-              $sampahnya = $rowsampah['totalberat'];
-              $beratakhir = mysqli_query(
-                  $conn,
-                  "update nasabah SET sampah=$sampahnya WHERE nin='" .
-                      $row['nin'] .
-                      "'"
-              );
-              ?>
-                    <?php echo number_format($row['sampah']) . ' Kg'; ?></td>
                 <td>
 
                     <a href="admin.php?page=edit-nasabah-id&id=<?php echo $row[

@@ -28,7 +28,6 @@ if (isset($_POST['simpan'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $saldo = $_POST['saldo'];
-    $sampah = $_POST['sampah'];
 
     $sql = mysqli_query($conn, "SELECT * FROM nasabah WHERE nin = '$nin'");
 
@@ -44,7 +43,7 @@ if (isset($_POST['simpan'])) {
 
     mysqli_query(
         $conn,
-        "INSERT INTO nasabah VALUES ('$nin','$nama','$rt','$alamat','$telepon','$email','$password','$saldo','$sampah')"
+        "INSERT INTO nasabah VALUES ('$nin','$nama','$rt','$alamat','$telepon','$email','$password','$saldo')"
     );
 
     echo "<script>
@@ -243,8 +242,9 @@ if (isset($_POST['simpan'])) {
         <div class="form-group">
             <input type="hidden" name="saldo" />
         </div>
+
         <div class="form-group">
-            <input type="hidden" name="sampah" />
+            <input type="file" name="foto" />
         </div>
 
         <input type="submit" name="simpan" value="Simpan"></input>

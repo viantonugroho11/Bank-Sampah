@@ -27,7 +27,6 @@
             <th>Berat</th>
             <th>Harga</th>
             <th>Total</th>
-            <th>NIA</th>
         </tr>
         </thead>
         <tfoot>
@@ -38,13 +37,12 @@
             <th>Berat</th>
             <th>Harga</th>
             <th>Total</th>
-            <th>NIA</th>
         </tr>   
         </tfoot>
         <tbody>
         <?php
             $no = 0; 
-            $query = mysqli_query($conn, "SELECT * FROM setor WHERE nin='".$_SESSION['nin']."' ORDER BY id_setor DESC");
+            $query = mysqli_query($conn, "SELECT sampah.id_sampah, sampah.jenis_sampah, setor.berat, setor.tanggal_setor, setor.total, setor.harga FROM setor JOIN sampah WHERE nin='".$_SESSION['nin']."' ORDER BY id_setor DESC");
             while($row = mysqli_fetch_array($query)){$no++;
         ?>
         <tr align="center">
@@ -54,7 +52,6 @@
             <td><?php echo number_format($row['berat'])." Kg"  ?></td>
             <td><?php echo "Rp. ".number_format($row['harga'], 2, ",", ".")  ?></td>
             <td><?php echo "Rp. ".number_format($row['total'], 2, ",", ".")  ?></td>
-            <td><?php echo $row['nia'] ?></td>
         </tr>
         <?php } ?>
         </tbody>

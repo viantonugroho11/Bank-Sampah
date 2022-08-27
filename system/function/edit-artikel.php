@@ -3,43 +3,33 @@ error_reporting(E_ALL | E_STRICT);
 require_once '../system/config/koneksi.php';
 
 if (isset($_POST['simpan'])) {
-    $jenis_sampah = $_POST['jenis_sampah'];
-    $id_sampah = $_POST['id_sampah'];
-    $satuan = $_POST['satuan'];
-    $harga = $_POST['harga'];
+    $nama_artikel = $_POST['nama_artikel'];
+    $id_artikel = $_POST['id_artikel'];
     $deskripsi = $_POST['deskripsi'];
     if (isset($_FILES['gambar']['tmp_name'])) {
         $nama_file = $_FILES['gambar']['name'];
         $source = $_FILES['gambar']['tmp_name'];
-        $folder = '../asset/internal/img/uploads/';
+        $folder = '../asset/internal/img/art/';
 
         move_uploaded_file($source, $folder . $nama_file);
         $query = mysqli_query(
             $conn,
-            "UPDATE sampah SET jenis_sampah='" .
-                $jenis_sampah .
-                "',satuan='" .
-                $satuan .
-                "',harga='" .
-                $harga .
+            "UPDATE artikel SET nama_artikel='" .
+                $nama_artikel .
                 "',gambar='" .
                 $nama_file .
                 "',deskripsi='" .
                 $deskripsi .
-                "' WHERE id_sampah='$id_sampah'"
+                "' WHERE id_artikel='$id_artikel'"
         );
     } else {
         $query = mysqli_query(
             $conn,
-            "UPDATE sampah SET jenis_sampah='" .
-                $jenis_sampah .
-                "',satuan='" .
-                $satuan .
-                "',harga='" .
-                $harga .
+            "UPDATE artikel SET nama_artikel='" .
+                $nama_artikel .
                 "',deskripsi='" .
                 $deskripsi .
-                "' WHERE id_sampah='$id_sampah'"
+                "' WHERE id_artikel='$id_artikel'"
         );
     }
     if ($query) {
@@ -49,7 +39,7 @@ if (isset($_POST['simpan'])) {
         </script>
         ";
 
-        echo "<script>location='admin.php?page=data-sampah';</script>";
+        echo "<script>location='admin.php?page=data-artikel';</script>";
     } else {
         echo "
         <script>
@@ -57,7 +47,7 @@ if (isset($_POST['simpan'])) {
         </script>
         ";
 
-        echo "<script>location='admin.php?page=data-sampah';</script>";
+        echo "<script>location='admin.php?page=data-artikel';</script>";
     }
 }
 ?>
@@ -114,13 +104,13 @@ if (isset($_POST['simpan'])) {
 </head>
 
 <body>
-    <h2 style="font-size: 30px; color: #262626;">Edit Data Sampah</h2>
+    <h2 style="font-size: 30px; color: #262626;">Edit Data Artikel</h2>
     <?php if (isset($_GET['id'])) {
-        $id_sampah = $_GET['id']; ?>
+        $id_artikel = $_GET['id']; ?>
     <?php
     $cek = mysqli_query(
         $conn,
-        "SELECT * FROM sampah WHERE id_sampah='" . $_GET['id'] . "'"
+        "SELECT * FROM artikel WHERE id_artikel='" . $_GET['id'] . "'"
     );
     $row = mysqli_fetch_array($cek);
     ?>
@@ -128,23 +118,11 @@ if (isset($_POST['simpan'])) {
     <form action="" method="post" enctype="multipart/form-data">
 
         <div class="form-group">
-            <label class="">Jenis Sampah</label>
-            <input type="text" name="jenis_sampah" value="<?php echo $row[
-                'jenis_sampah'
+            <label class="">Nama Artikel</label>
+            <input type="text" name="nama_artikel" value="<?php echo $row[
+                'nama_artikel'
             ]; ?> " />
-            <input type="hidden" name="id_sampah" value="<?php echo $row['id_sampah']; ?> " />
-        </div>
-        <div class="form-group">
-            <label class="">Satuan</label>
-            <input type="text" name="satuan" value="<?php echo $row[
-                'satuan'
-            ]; ?>" readonly />
-        </div>
-        <div class="form-group">
-            <label class="">Harga</label>
-            <input type="text" name="harga" value="<?php echo $row[
-                'harga'
-            ]; ?>" required />
+            <input type="hidden" name="id_artikel" value="<?php echo $row['id_artikel']; ?> " />
         </div>
         <div class="form-group">
             <label class="">Gambar</label>
@@ -154,14 +132,14 @@ if (isset($_POST['simpan'])) {
         </div>
         <div class="form-group">
             <label class="">Deskripsi</label>
-            <input type="text" name="deskripsi" value="<?php echo $row[
+            <textarea type="text" name="deskripsi" value="<?php echo $row[
                 'deskripsi'
-            ]; ?>" required />
+            ]; ?>" required><?php echo $row['deskripsi']; ?></textarea>
         </div>
 
 
 
-        <input name="id_sampah" type="hidden" value="<?php echo $_GET['id']; ?>" />
+        <input name="id_artikel" type="hidden" value="<?php echo $_GET['id']; ?>" />
         <input class="button" type="submit" name="simpan" value="Simpan Data" />
 
 

@@ -1,18 +1,16 @@
 <?php if (isset($_POST['simpan'])) {
     require_once '../system/config/koneksi.php';
-    $jenis_sampah = $_POST['jenis_sampah'];
-    $satuan = $_POST['satuan'];
-    $harga = $_POST['harga'];
+    $nama_artikel = $_POST['nama_artikel'];
     $nama_file = $_FILES['gambar']['name'];
     $source = $_FILES['gambar']['tmp_name'];
-    $folder = '../asset/internal/img/uploads/';
+    $folder = '../asset/internal/img/art/';
     $deskripsi = $_POST['deskripsi'];
 
     move_uploaded_file($source, $folder . $nama_file);
 
     $query = mysqli_query(
         $conn,
-        "INSERT INTO sampah VALUES ('','$jenis_sampah','$satuan','$harga','$nama_file','$deskripsi')"
+        "INSERT INTO artikel VALUES ('','$nama_artikel','$nama_file','$deskripsi')"
     );
 
     if ($query) {
@@ -22,7 +20,7 @@
         </script>
         ";
 
-        echo "<script>location='admin.php?page=data-sampah';</script>";
+        echo "<script>location='admin.php?page=data-artikel';</script>";
     } else {
         echo "
         <script>
@@ -30,7 +28,7 @@
         </script>
         ";
 
-        echo "<script>location='admin.php?page=data-sampah';</script>";
+        echo "<script>location='admin.php?page=data-artikel';</script>";
     }
 } ?>
 
@@ -92,43 +90,20 @@
 
     <script type="text/javascript">
     function cek_data() {
-        var x = daftar_user.jenis_sampah.value;
+        var x = daftar_user.nama_artikel.value;
         var x1 = parseInt(x);
 
         if (x == "") {
-            alert("Maaf harap input jenis sampah!");
-            daftar_user.jenis_sampah.focus();
+            alert("Maaf harap input nama artikel!");
+            daftar_user.nama_artikel.focus();
             return false;
         }
         if (isNaN(x1) == false) {
-            alert("Maaf jenis sampah harus di input huruf!");
-            daftar_user.jenis_sampah.focus();
+            alert("Maaf nama artikel harus di input huruf!");
+            daftar_user.nama_artikel.focus();
             return false;
         }
-        var p = daftar_user.satuan.value;
-        if (p == "p") {
-            alert("Maaf harap input satuan sampah!");
-            return (false);
-        }
-        var x = daftar_user.harga.value;
-        var angka = /^[0-9]+$/;
-        var panjang = x.length;
 
-        if (x == "") {
-            alert("Maaf harap input harga!");
-            daftar_user.harga.focus();
-            return false;
-        }
-        if (!x.match(angka)) {
-            alert("Maaf harga harus di input angka!");
-            daftar_user.harga.focus();
-            return false;
-        }
-        if (panjang < 3 || panjang > 5) {
-            alert("harga di input minimum 3 karakter dan maksimum 5 karakter!");
-            daftar_user.harga.focus();
-            return false;
-        }
         if (daftar_user.gambar.value == "") {
             alert("Maaf harap input gambar!");
             daftar_user.gambar.focus();
@@ -142,8 +117,8 @@
             daftar_user.deskripsi.focus();
             return false;
         }
-        if (panjang > 50) {
-            alert("deskripsi di input maksimum 50 karakter!");
+        if (panjang > 50000) {
+            alert("deskripsi di input maksimum 50000 karakter!");
             daftar_user.deskripsi.focus();
             return false;
         } else {
@@ -160,23 +135,8 @@
 
     <form id="daftar_user" action="" method="post" enctype="multipart/form-data" onsubmit="return cek_data()">
         <div class="form-group">
-            <label class="text-left">Jenis Sampah</label>
-            <input type="text" placeholder="Masukan jenis sampah" name="jenis_sampah" />
-        </div>
-
-        <div class="form-group">
-            <label class="">Satuan</label>
-            <select name="satuan">
-                <option value="p">---Pilih Satuan---</option>
-                <option value="KG">Kilogram</option>
-                <option value="PC">Pieces</option>
-                <option value="LT">Liter</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label class="">Harga (Rp)</label>
-            <input type="text" placeholder="Masukan harga (Rp)" name="harga" />
+            <label class="text-left">Artikel</label>
+            <input type="text" placeholder="Masukan nama artikel" name="nama_artikel" />
         </div>
 
         <div class="form-group">
@@ -186,7 +146,7 @@
 
         <div class="form-group">
             <label class="">Deskripsi</label>
-            <input type="text" placeholder="Masukan deskripsi sampah" name="deskripsi" />
+            <textarea type="text" placeholder="Masukan deskripsi artikel" name="deskripsi"></textarea>
         </div>
 
         <input type="submit" name="simpan" value="Simpan"></input>

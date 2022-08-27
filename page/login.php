@@ -15,12 +15,12 @@
         <h1>MASUK DISINI</h1>
         <form action="cek_login.php" method="post">
             <div class="inputBox">
-                <input type="text" name="user" autocomplete="off" placeholder="Masukan nomor induk">
+                <input type="text" name="user" autocomplete="off" placeholder="Masukan Email">
                 <span><i class="fa fa-user" aria-hidden="true"></i></span>
                 </input>
             </div>
             <div class="inputBox">
-                <input type="password" name="pass" autocomplete="off" placeholder="Masukan password">
+                <input type="password" name="pass" autocomplete="off" placeholder="Masukan Password">
                 <span><i class="fa fa-lock" aria-hidden="true"></i></span>
                 </input>
             </div>

@@ -7,11 +7,11 @@ if (isset($_POST['login'])) {
 
     $data_admin = mysqli_query(
         $conn,
-        "SELECT * FROM admin WHERE nia = '$user' AND password = '$pass'"
+        "SELECT * FROM admin WHERE email = '$user' AND password = '$pass'"
     );
     $data_nasabah = mysqli_query(
         $conn,
-        "SELECT * FROM nasabah WHERE nin = '$user' AND password = '$pass'"
+        "SELECT * FROM nasabah WHERE email = '$user' AND password = '$pass'"
     );
 
     $n = mysqli_fetch_array($data_nasabah);
@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
     if ($user == '' || $pass == '') {
         echo "
 				<script>
-					alert('Nomer Induk dan Kata Sandi tidak boleh kosong!');
+					alert('email dan Kata Sandi tidak boleh kosong!');
 					document.location.href ='login.php';
 				</script>
 				";
@@ -79,7 +79,7 @@ if (isset($_POST['login'])) {
         } else {
             echo "
 				<script>
-					alert('Maaf Nomer Induk dan Kata Sandi Salah!');
+					alert('Maaf email dan Kata Sandi Salah!');
 					document.location.href ='login.php';
 				</script>
 				";

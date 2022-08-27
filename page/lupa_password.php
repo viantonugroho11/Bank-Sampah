@@ -12,8 +12,9 @@ if (isset($_POST['submit'])) {
     );
     $cekdata = mysqli_num_rows($data_nasabah);
     if ($cekdata > 0) {
-      $query = "UPDATE nasabah SET password = '$pass' WHERE email='$user'";
+      $query = "UPDATE nasabah SET password = '$pass' WHERE email='".$user."'";
       $queryact = mysqli_query($conn, $query);
+      // var_dump($queryact);
       header("Location: login.php");
     } else {
       echo "

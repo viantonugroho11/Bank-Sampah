@@ -11,7 +11,7 @@ require '../system/config/koneksi.php'; ?>
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-    <link rel="shortcut icon" href="../asset/internal/img/img-local/favicon.ico">
+    <link rel="shortcut icon" href="../asset/internal/img/img-local/favicon2.png">
     <link rel="stylesheet" href="../asset/internal/css/style-index1.css">
     <link rel="stylesheet" href="../asset/internal/css/style-index2.css">
 
@@ -38,7 +38,7 @@ require '../system/config/koneksi.php'; ?>
 
     <!--Navbar-->
     <header>
-        <a href="#" id="logo"></a>
+        <a href="#" id=""></a>
         <nav>
             <a href="#" id="menu-icon"></a>
             <ul id="top-menu">
@@ -69,7 +69,7 @@ require '../system/config/koneksi.php'; ?>
             <div class="container">
                 <div class="row">
                     <h1>TERTARIK BERGABUNG ???</h1>
-                    <p>Bank sampah kenanga 09 adalah organisasi peduli lingkungan yang berlokasi di perumahan Pondok
+                    <p>Bank sampah adalah organisasi peduli lingkungan yang berlokasi di perumahan Pondok
                         Gede Permai RW.009 kelurahan Jatirasa kecamatan Jatiasih Kota Bekasi. Selain bidang bank sampah
                         kami juga berfokus pada pengelolaan sampah, seperti komposting berbasis sampah, kerajinan
                         berbahan baku sampah, dan masih banyak lagi program yang kami kembangkan. Saat ini bank sampah
@@ -141,7 +141,7 @@ require '../system/config/koneksi.php'; ?>
                 <a href="lokasi.php">Lokasi</a>
                 </p>
 
-                <p class="footer-company-name">&copy; Bank Sampah Kenanga 09 2017</p>
+                <p class="footer-company-name">&copy; Bank Sampah</p>
         </div>
 
         <div class="footer-center">

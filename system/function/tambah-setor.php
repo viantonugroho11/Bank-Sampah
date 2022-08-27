@@ -4,12 +4,11 @@ if (isset($_POST['simpan'])) {
     require_once '../system/config/koneksi.php';
     $tanggal_setor = $_POST['tanggal_setor'];
     $nin = $_POST['nin'];
-    $jenis_sampah = $_POST['jenis_sampah'];
+    $id_sampah = $_POST['id_sampah'];
     $berat = $_POST['berat'];
     $harga = $_POST['harga'];
     $total = $_POST['total'];
-    $nia = $_POST['nia'];
-    $query = "INSERT INTO setor(id_setor,tanggal_setor,nin,jenis_sampah,berat,harga,total,nia) VALUE ('NULL','$tanggal_setor','$nin','$jenis_sampah','$berat','$harga','$total','$nia')";
+    $query = "INSERT INTO setor(id_setor,tanggal_setor,nin,id_sampah,berat,harga,total) VALUE ('NULL','$tanggal_setor','$nin','$id_sampah','$berat','$harga','$total')";
     $queryact = mysqli_query($conn, $query);
 
     echo "<script>alert('Selamat berhasil input data!')</script>";
@@ -95,7 +94,7 @@ if (isset($_POST['simpan'])) {
             alert("Maaf harap input nomor induk nasabah!");
             return (false);
         }
-        var pjs = daftar_user.jenis_sampah.value;
+        var pjs = daftar_user.id_sampah.value;
         if (pjs == "pjs") {
             alert("Maaf harap input jenis sampah!");
             return (false);
@@ -158,18 +157,18 @@ if (isset($_POST['simpan'])) {
                 }
                 ?></select></div>" +
 
-                "<div class='form-group'><label class=''>Jenis Sampah</label><select class='jensampah2' name='jenis_sampah2' onchange='changeValue(this.value)' id='jenis_sampah2' ><option value='pjs'>---Pilih Jenis Sampah---</option><?php
+                "<div class='form-group'><label class=''>Jenis Sampah</label><select class='id2' name='id_sampah2' onchange='changeValue(this.value)' id='id_sampah2' ><option value='pjs'>---Pilih Jenis Sampah---</option><?php
                 $query = mysqli_query($conn, 'SELECT * FROM sampah');
                 $jsArray2 = 'var dtsampah2 = new Array();\n';
                 while ($row = mysqli_fetch_array($query)) {
                     echo '<option value=' .
-                        $row['jenis_sampah'] .
+                        $row['id_sampah'] .
                         '>' .
-                        $row['jenis_sampah'] .
+                        $row['id_sampah'] .
                         '</option>';
                     $jsArray2 .=
                         'dtsampah2[' .
-                        $row['jenis_sampah'] .
+                        $row['id_sampah'] .
                         '] = {harga:' .
                         addslashes($row['harga']) .
                         '};\n';
@@ -242,20 +241,20 @@ if (isset($_POST['simpan'])) {
 
         <div class="form-group">
             <label class="">Jenis Sampah</label>
-            <select class="jensampah" name="jenis_sampah" id="jenis_sampah" onchange="changeValue(this.value)">
+            <select class="id" name="id_sampah" id="id_sampah" onchange="changeValue(this.value)">
                 <option value="pjs">---Pilih Jenis Sampah---</option>
                 <?php
                 $query = mysqli_query($conn, 'SELECT * FROM sampah');
                 $jsArray = "var dtsampah = new Array();\n";
                 while ($row = mysqli_fetch_array($query)) {
                     echo '<option value="' .
-                        $row['jenis_sampah'] .
+                        $row['id_sampah'] .
                         '">' .
                         $row['jenis_sampah'] .
                         '</option>';
                     $jsArray .=
                         "dtsampah['" .
-                        $row['jenis_sampah'] .
+                        $row['id_sampah'] .
                         "'] = {harga:'" .
                         addslashes($row['harga']) .
                         "'};\n";
@@ -281,12 +280,6 @@ if (isset($_POST['simpan'])) {
             <input type="text" placeholder="Otomatis terisi" style="cursor: not-allowed;" id="total" name="total"
                 readonly />
         </div>
-        <div class="form-group">
-            <label class="">Nomor Induk Admin</label>
-            <input type="text" style="cursor: not-allowed;" name="nia" value="<?php echo $_SESSION[
-                'nia'
-            ]; ?>" readonly />
-        </div>
 
         <input type="submit" name="simpan" value="Simpan" />
 
@@ -301,9 +294,9 @@ if (isset($_POST['simpan'])) {
     <script type="text/javascript">
     <?php echo $jsArray; ?>
 
-    function changeValue(jenis_sampah) {
+    function changeValue(id_sampah) {
         console.log(dtsampah);
-        document.getElementById('harga').value = dtsampah[jenis_sampah]['harga'];
+        document.getElementById('harga').value = dtsampah[id_sampah]['harga'];
         sum();
     };
 
@@ -326,7 +319,7 @@ if (isset($_POST['simpan'])) {
     $(document).ready(function() {
         $('.nomoradmin').select2();
         $('.nomornasabah').select2();
-        $('.jensampah').select2();
+        $('.id').select2();
     });
     </script>
 

@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Masuk</title>
     <link rel="stylesheet" href="../asset/internal/css/style_1.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway:700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../asset/internal/img/img-local/favicon.ico">
+    <link rel="shortcut icon" href="../asset/internal/img/img-local/favicon2.png">
 </head>
 
 <body>
@@ -15,12 +15,12 @@
         <h1>MASUK DISINI</h1>
         <form action="cek_login.php" method="post">
             <div class="inputBox">
-                <input type="text" name="user" autocomplete="off" placeholder="Masukan nomor induk">
+                <input type="text" name="user" autocomplete="off" placeholder="Masukan Email">
                 <span><i class="fa fa-user" aria-hidden="true"></i></span>
                 </input>
             </div>
             <div class="inputBox">
-                <input type="password" name="pass" autocomplete="off" placeholder="Masukan password">
+                <input type="password" name="pass" autocomplete="off" placeholder="Masukan Password">
                 <span><i class="fa fa-lock" aria-hidden="true"></i></span>
                 </input>
             </div>

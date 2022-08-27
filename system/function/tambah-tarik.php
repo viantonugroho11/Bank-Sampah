@@ -137,7 +137,7 @@ if (isset($_POST['simpan'])) {
     <form id="daftar_user" name='autoSumForm' action="" method="post" onsubmit="return cek_data()">
         <div class="form-group">
             <label class="text-left">Tanggal Penarikan</label>
-            <input type="text" placeholder="Masukan tanggal setor" id="date" name="tanggal_tarik" />
+            <input type="text" placeholder="Masukan tanggal tarik" id="date" name="tanggal_tarik" />
             <script type="text/javascript">
             $('#date').datepick({
                 dateFormat: 'yyyy-mm-dd'

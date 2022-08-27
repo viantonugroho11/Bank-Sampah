@@ -15,7 +15,7 @@ if (empty($_SESSION['user']) && empty($_SESSION['pass'])) {
     <link rel="stylesheet" href="../asset/internal/css/style_2.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway:700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../asset/internal/img/img-local/favicon.ico">
+    <link rel="shortcut icon" href="../asset/internal/img/img-local/favicon2.png">
     <style>
         button {
             height: 27px;
@@ -69,11 +69,6 @@ if (empty($_SESSION['user']) && empty($_SESSION['pass'])) {
             <li>
                 <a href="admin.php?page=data-tarik"><span class="fa fa-handshake-o" aria-hidden="true"></span>Transaksi
                     Tarik</a>
-            </li>
-
-            <li>
-                <a href="admin.php?page=data-report"><span class="fa fa-line-chart" aria-hidden="true"></span>Grafik
-                    Monitoring</a>
             </li>
 
             <li>

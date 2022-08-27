@@ -16,15 +16,13 @@
 </head>
 
 <body>
-    <h2 style="font-size: 30px; color: #262626;">Data Sampah</h2>
+    <h2 style="font-size: 30px; color: #262626;">Data Artikel</h2>
     <br>
     <table id="example" class="display" cellspacing="0" width="100%" border="0">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Jenis Sampah</th>
-                <th>Satuan</th>
-                <th>Harga</th>
+                <th>Nama Artikel</th>
                 <th>Gambar</th>
                 <th>Deskripsi</th>
                 <th>Aksi</th>
@@ -33,9 +31,7 @@
         <tfoot>
             <tr>
                 <th>No</th>
-                <th>Jenis Sampah</th>
-                <th>Satuan</th>
-                <th>Harga</th>
+                <th>Nama Artikel</th>
                 <th>Gambar</th>
                 <th>Deskripsi</th>
                 <th>Aksi</th>
@@ -46,30 +42,27 @@
             $no = 0;
             $query = mysqli_query(
                 $conn,
-                'SELECT * FROM sampah ORDER BY jenis_sampah ASC'
+                'SELECT * FROM artikel ORDER BY id_artikel ASC'
             );
             while ($row = mysqli_fetch_assoc($query)) {
                 $no++; ?>
             <tr align="center">
                 <td><?php echo "$no"; ?></td>
-                <td><?php echo $row['jenis_sampah']; ?></td>
-                <td><?php echo $row['satuan']; ?></td>
-                <td><?php echo 'Rp. ' .
-                    number_format($row['harga'], 2, ',', '.'); ?></td>
-                <td><img src="../asset/internal/img/uploads/<?php echo $row[
+                <td><?php echo $row['nama_artikel']; ?></td>
+                <td><img src="../asset/internal/img/art/<?php echo $row[
                     'gambar'
                 ]; ?>" width="100px" height="50px"></td>
                 <td><?php echo $row['deskripsi']; ?></td>
                 <td>
 
-                    <a href="admin.php?page=edit-sampah&id=<?php echo $row[
-                        'id_sampah'
+                    <a href="admin.php?page=edit-artikel&id=<?php echo $row[
+                        'id_artikel'
                     ]; ?>">
                         <button><i class="fa fa-pencil"></i>edit</button>
                     </a>
 
-                    <a onclick="return confirm('Anda yakin ingin menghapus data ini?')" href="../system/function/delete-sampah.php?id=<?php echo $row[
-                        'id_sampah'
+                    <a onclick="return confirm('Anda yakin ingin menghapus data ini?')" href="../system/function/delete-artikel.php?id=<?php echo $row[
+                        'id_artikel'
                     ]; ?>">
                         <button><i class="fa fa-trash-o"></i>hapus</button>
                     </a>
@@ -84,11 +77,11 @@
     <br>
     <br>
 
-    <a href="admin.php?page=tambah-data-sampah">
+    <a href="admin.php?page=tambah-data-artikel">
         <button><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
     </a>
 
-    <a target="_blank" href="../system/function/print-sampah.php">
+    <a target="_blank" href="../system/function/print-artikel.php">
         <button><i class="fa fa-print" aria-hidden="true"></i>Cetak</button>
     </a>
 

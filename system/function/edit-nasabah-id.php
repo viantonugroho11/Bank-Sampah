@@ -117,12 +117,6 @@ if (isset($_POST['simpan'])) {
                 'saldo'
             ]; ?>" />
         </div>
-        <div class="form-group">
-            <label class="">Sampah (Kg)</label>
-            <input type="text" disabled="disabled" name="saldo" value="<?php echo $row[
-                'sampah'
-            ]; ?>" />
-        </div>
 
 
         <input name="id" type="hidden" value="<?php echo $_GET['id']; ?>" />
@@ -184,12 +178,6 @@ if (isset($_POST['simpan'])) {
             <label class="">Saldo (Rp)</label>
             <input type="text" disabled="disabled" name="saldo" value="<?php echo $row[
                 'saldo'
-            ]; ?>" />
-        </div>
-        <div class="form-group">
-            <label class="">Sampah (Kg)</label>
-            <input type="text" disabled="disabled" name="saldo" value="<?php echo $row[
-                'sampah'
             ]; ?>" />
         </div>
 

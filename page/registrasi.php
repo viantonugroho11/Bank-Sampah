@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../asset/internal/css/style_1.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway:700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../asset/internal/img/img-local/favicon.ico">
+    <link rel="shortcut icon" href="../asset/internal/img/img-local/favicon2.png">
 </head>
 <style>
     select {
@@ -67,7 +67,7 @@
 
         mysqli_query(
             $conn,
-            "INSERT INTO nasabah VALUES ('$nin','$nama','$rt','$alamat','$telepon','$email','$password','$saldo','$sampah')"
+            "INSERT INTO nasabah VALUES ('$nin','$nama','$rt','$alamat','$telepon','$email','$password','$saldo')"
         );
 
         echo "<script>

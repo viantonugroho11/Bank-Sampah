@@ -11,7 +11,7 @@ require 'system/config/koneksi.php'; ?>
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-    <link rel="shortcut icon" href="asset/internal/img/img-local/favicon.ico">
+    <link rel="shortcut icon" href="asset/internal/img/img-local/favicon2.png">
     <link rel="stylesheet" href="asset/internal/css/style-index1.css">
     <link rel="stylesheet" href="asset/internal/css/style-index2.css">
 
@@ -38,7 +38,7 @@ require 'system/config/koneksi.php'; ?>
 
     <!--Navbar-->
     <header>
-        <a href="#" id="logo"></a>
+        <a href="#" id=""></a>
         <nav>
             <a href="#" id="menu-icon"></a>
             <ul id="top-menu">
@@ -67,17 +67,17 @@ require 'system/config/koneksi.php'; ?>
     <div class="page-wrap">
         <div class="header" style="background: black;">
             <div class="box-1">
-                <h1 disabled>Bank Sampah Kenanga 09</h1>
-                <p> Merubah sampah menjadi penghasilan tambahan Anda !!! </p>
+                <h1 disabled>Bank Sampah</h1>
+                <p> Sampah Bisa Menjadi Penghasilan Tambahan Anda </p>
                 <br> <br>
 
                 <div class="center">
                     <a href="page/login.php" target="_blank">
-                        <div class="btn" align="center">Login</div>
+                        <div class="btn" align="center">Masuk</div>
                     </a> <!-- End Btn -->
 
                     <a href="page/registrasi.php" target="_blank">
-                        <div id="btn2" align="center">Register</div>
+                        <div id="btn2" align="center">Registrasi</div>
                     </a> <!-- End Btn2 -->
                 </div>
             </div>
@@ -104,7 +104,7 @@ require 'system/config/koneksi.php'; ?>
                 <a href="page/lokasi.php">Lokasi</a>
                 </p>
 
-                <p class="footer-company-name">&copy; Bank Sampah Kenanga 09 2017</p>
+                <p class="footer-company-name">&copy; Bank Sampah</p>
         </div>
 
         <div class="footer-center">

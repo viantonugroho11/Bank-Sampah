@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Login</title>
+  <title>Masuk</title>
   <link rel="stylesheet" href="../asset/internal/css/style_1.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway:700" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
     <h1>Reset Password</h1>
     <form action="lupa_password.php" method="post">
       <div class="inputBox">
-        <input type="text" name="user" autocomplete="off" placeholder="Masukan nomor induk">
+        <input type="text" name="user" autocomplete="off" placeholder="Masukan Email">
         <span><i class="fa fa-user" aria-hidden="true"></i></span>
       </div>
       <div class="inputBox">
@@ -23,7 +23,7 @@
         <span><i class="fa fa-lock" aria-hidden="true"></i></span>
       </div>
       <div class="inputBox">
-        <input type="password" name="pass_confirm" autocomplete="off" placeholder="Masukan Confirmasi password">
+        <input type="password" name="pass_confirm" autocomplete="off" placeholder="Masukan Konfirmasi password">
         <span><i class="fa fa-lock" aria-hidden="true"></i></span>
       </div>
       <input type="submit" name="submit" value="submit">

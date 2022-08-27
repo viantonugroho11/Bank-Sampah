@@ -80,13 +80,6 @@
           ?>      
           <input type="text" disabled="disabled" value="<?php echo $tot_saldo_total; ?>"/>
          </div>
-         <div class="form-group">
-          <label class="">Berat Sampah (Kg)</label>
-          <input type="text" disabled="disabled" value="<?php 
-            $query = mysqli_query($conn, "SELECT SUM(berat) AS totalberat FROM setor WHERE nin='".$_SESSION['nin']."'");
-            while($row = mysqli_fetch_array($query)){
-            echo $row['totalberat']; }?>"/>
-         </div>
         
          <input type="button" name="simpan" value="Simpan Data" />
 

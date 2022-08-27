@@ -53,7 +53,6 @@
                 <th>BERAT</th>
                 <th>HARGA</th>
                 <th>TOTAL</th>
-                <th>NIA</th>
             </tr>
         </thead>
 
@@ -62,7 +61,7 @@
         // Load file koneksi.php
         require_once '../config/koneksi.php';
 
-        $query = 'SELECT * FROM setor';
+        $query = 'SELECT sampah.id_sampah, setor.id_setor, sampah.jenis_sampah, setor.tanggal_setor, setor.nin, setor.berat, setor.harga, setor.total FROM setor JOIN sampah';
         $sql = mysqli_query($conn, $query);
         $row = mysqli_num_rows($sql);
 
@@ -81,7 +80,6 @@
                     number_format($data['harga'], 2, ',', '.'); ?></td>
                 <td><?php echo 'Rp. ' .
                     number_format($data['total'], 2, ',', '.'); ?></td>
-                <td><?php echo $data['nia']; ?></td>
             </tr>
         </tbody>
 

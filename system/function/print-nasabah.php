@@ -51,7 +51,6 @@
                 <th>TELEPON</th>
                 <th>USERNAME</th>
                 <th>SALDO</th>
-                <th>BERAT</th>
             </tr>
         </thead>
 
@@ -74,7 +73,6 @@
                 <td><?php echo $data['email']; ?></td>
                 <td><?php echo 'Rp. ' .
                     number_format($data['saldo'], 2, ',', '.'); ?></td>
-                <td><?php echo number_format($data['sampah']) . ' Kg'; ?></td>
             </tr>
         </tbody>
 

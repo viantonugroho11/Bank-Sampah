@@ -28,7 +28,6 @@
                 <th>Berat</th>
                 <th>Harga</th>
                 <th>Total</th>
-                <th>NIA</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -41,13 +40,12 @@
                 <th>Berat</th>
                 <th>Harga</th>
                 <th>Total</th>
-                <th>NIA</th>
                 <th>Aksi</th>
             </tr>
         </tfoot>
         <tbody>
             <?php
-            $query = mysqli_query($conn, "SELECT * FROM setor ORDER BY id_setor ASC");
+            $query = mysqli_query($conn, "SELECT sampah.jenis_sampah, sampah.harga , setor.id_setor, setor.tanggal_setor, setor.nin, setor.berat, setor.total FROM setor JOIN sampah ORDER BY id_setor ASC");
             while ($row = mysqli_fetch_assoc($query)) {
                 ?>
             <tr align="center">
@@ -64,8 +62,6 @@
                 <td><?php echo "Rp. ".number_format($row['harga'], 2, ",", ".")  ?>
                 </td>
                 <td><?php echo "Rp. ".number_format($row['total'], 2, ",", ".")  ?>
-                </td>
-                <td><?php echo $row['nia'] ?>
                 </td>
                 <td>
 

@@ -4,7 +4,7 @@ require_once '../system/config/koneksi.php';
 if (isset($_POST['simpan'])) {
     $id = $_POST['id_setor'];
     $tanggal_setor = $_POST['tanggal_setor'];
-    $jenis_sampah = $_POST['jenis_sampah'];
+    $id_sampah = $_POST['id_sampah'];
     $berat = $_POST['berat'];
     $harga = $_POST['harga'];
     $total = $_POST['total'];
@@ -12,8 +12,8 @@ if (isset($_POST['simpan'])) {
         $conn,
         "UPDATE setor SET tanggal_setor='" .
             $tanggal_setor .
-            "',jenis_sampah='" .
-            $jenis_sampah .
+            "',id_sampah='" .
+            $id_sampah .
             "',berat='" .
             $berat .
             "',harga='" .
@@ -107,7 +107,7 @@ if ($query) {
     <?php
                                                                                                                         $cek = mysqli_query(
             $conn,
-            "SELECT * FROM setor WHERE id_setor='" . $_GET['id'] . "'"
+            "SELECT sampah.id_sampah, sampah.jenis_sampah, setor.tanggal_setor, setor.nin FROM setor JOIN sampah WHERE id_setor='" . $_GET['id'] . "'"
         );
         $row = mysqli_fetch_array($cek); ?>
 
@@ -128,13 +128,6 @@ if ($query) {
                 value="<?php echo $row['id_setor']; ?> " />
         </div>
         <div class="form-group">
-            <label class="">Nomor Induk Admin</label>
-            <input type="text" disabled="disabled" name="nia"
-                value="<?php echo $row[
-                                                                                                                                    'nia'
-                                                                                                                                ]; ?>" />
-        </div>
-        <div class="form-group">
             <label class="">Nomor Induk Nasabah</label>
             <input type="text" name="nin" disabled="disabled"
                 value="<?php echo $row[
@@ -143,27 +136,25 @@ if ($query) {
         </div>
         <div class="form-group">
             <label class="">Jenis Sampah Sebelumnya</label>
-            <input type="text" name="jenis_sampah" disabled
-                value="<?php echo $row[
-                                                                                                                                    'jenis_sampah'
-                                                                                                                                ]; ?>" required />
+            <input type="text" name="id_sampah" disabled
+                value="<?php echo $row['jenis_sampah']; ?>" required />
         </div>
         <div class="form-group">
             <label class="">Jenis Sampah</label>
-            <select class="jensampah" name="jenis_sampah" id="jenis_sampah" required onchange="changeValue(this.value)">
+            <select class="jensampah" name="id_sampah" id="id_sampah" required onchange="changeValue(this.value)">
                 <option value="pjs">---Pilih Jenis Sampah---</option>
                 <?php
                                                                                                 $query = mysqli_query($conn, 'SELECT * FROM sampah');
         $jsArray = "var dtsampah = new Array();\n";
         while ($row = mysqli_fetch_array($query)) {
             echo '<option value="' .
-                                                                                                        $row['jenis_sampah'] .
+                                                                                                        $row['id_sampah'] .
                                                                                                         '">' .
                                                                                                         $row['jenis_sampah'] .
                                                                                                         '</option>';
             $jsArray .=
                                                                                                         "dtsampah['" .
-                                                                                                        $row['jenis_sampah'] .
+                                                                                                        $row['id_sampah'] .
                                                                                                         "'] = {harga:'" .
                                                                                                         addslashes($row['harga']) .
                                                                                                         "'};\n";
@@ -201,9 +192,9 @@ if ($query) {
     <script type="text/javascript">
         <?php echo $jsArray; ?>
 
-        function changeValue(jenis_sampah) {
+        function changeValue(id_sampah) {
             console.log(dtsampah);
-            document.getElementById('harga').value = dtsampah[jenis_sampah]['harga'];
+            document.getElementById('harga').value = dtsampah[id_sampah]['harga'];
             sum();
         };
 
